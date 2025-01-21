@@ -2,7 +2,6 @@ import os
 import re
 from datetime import datetime
 
-# Helper function to parse a log line
 def parse_log_line(line):
     try:
         # Match the log format using a regular expression
@@ -16,7 +15,7 @@ def parse_log_line(line):
         else:
             raise ValueError("Invalid log format")
     except Exception as e:
-        return None  # Skip invalid or malformed entries
+        return None  
 
 
 # Function to read and parse the log file
@@ -60,12 +59,10 @@ def filter_logs_by_date(logs, start_date, end_date):
     return filtered
 
 
-# Main program
 def main():
     log_file = "logs.txt"
     
     try:
-        # Read logs
         logs = read_logs(log_file)
         if not logs:
             print("No valid logs found.")
